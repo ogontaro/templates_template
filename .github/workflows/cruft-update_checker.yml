@@ -7,7 +7,7 @@ on:
 
 jobs:
   cruft-update-checker:
-    runs-on: [ "{{cookiecutter.github_runner_scale_set_name}}" ]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
