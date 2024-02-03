@@ -17,11 +17,12 @@ jobs:
           REPOS: ${{ vars.REPOSITORIES_TO_PUSH_EVENT }}
         run: |
           echo "$REPOS" | while IFS= read -r REPO; do
-            echo push to https://api.github.com/repos/$REPO/dispatche
+            REPO_CLEAN=$(echo "$REPO" | tr -d '\n' | tr -d '\r')
+            echo "push to $REPO_CLEAN"
             curl \
-              -X POST \
-              -H "Authorization: token $CRUFT_GITHUB_ACCESS_TOKEN" \
-              -H "Accept: application/vnd.github.v3+json" \
-              https://api.github.com/repos/$REPO/dispatches \
-              -d '{"event_type":"cruft-update"}'
+            -X POST \
+            -H "Authorization: token $CRUFT_GITHUB_ACCESS_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$REPO_CLEAN/dispatches" \
+            -d '{"event_type":"cruft-update","client_payload":{"env": "dev"}}'
           done
