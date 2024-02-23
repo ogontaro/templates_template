@@ -1,4 +1,4 @@
-name: call cruft update action
+name: Trigger Cruft Update Event
 
 on:
   push:
