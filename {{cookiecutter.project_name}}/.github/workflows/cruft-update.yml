@@ -14,7 +14,7 @@ on:
       - cruft-update
 
 jobs:
-  update:
+  cruft-update:
     runs-on: [ "{{cookiecutter.github_runner_scale_set_name}}" ]
 
     steps:

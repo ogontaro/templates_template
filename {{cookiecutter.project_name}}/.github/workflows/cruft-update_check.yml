@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  cruft-update-checker:
+  cruft-update-check:
     runs-on: [ "{{cookiecutter.github_runner_scale_set_name}}" ]
 
     steps:

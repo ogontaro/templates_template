@@ -1,4 +1,4 @@
-name: Reviewdog - EditorConfig
+name: Reviewdog - eclint
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  editorconfig:
+  eclint:
     runs-on: ubuntu-latest
 
     steps:
