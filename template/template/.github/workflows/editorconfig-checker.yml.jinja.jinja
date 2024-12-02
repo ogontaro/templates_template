@@ -14,6 +14,12 @@ jobs:
       - uses: editorconfig-checker/action-editorconfig-checker@main
       - run: ec
 
+defaults:
+  run:
+    # デフォルトシェルを定義して、pipefailオプションが全ステップで有効にする
+    # https://gihyo.jp/article/2024/10/good-practices-for-github-actions
+    shell: bash
+
 # 連続してpushした際に、一つ前の実行中のjobが停止するようにする
 # https://zenn.dev/katzumi/articles/using-concurrency-at-github-actions
 concurrency:
