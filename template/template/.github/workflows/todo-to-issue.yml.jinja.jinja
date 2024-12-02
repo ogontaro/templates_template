@@ -1,9 +1,11 @@
 {%- raw -%}
 name: "Run TODO to Issue"
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ["{{github_runner_scale_set_name}}"]
