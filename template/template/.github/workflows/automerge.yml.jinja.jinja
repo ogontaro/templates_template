@@ -33,4 +33,10 @@ jobs:
           MERGE_LABELS: "auto-merge"
           UPDATE_LABELS: "auto-merge"
           MERGE_DELETE_BRANCH: true # マージブランチを削除するか(default: false)
+
+# 連続してpushした際に、一つ前の実行中のjobが停止するようにする
+# https://zenn.dev/katzumi/articles/using-concurrency-at-github-actions
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 {%- endraw %}
